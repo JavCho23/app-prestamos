@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "638908077364",
+    "firebase_url": "https://app-bprestamos.firebaseio.com",
+    "project_id": "app-bprestamos",
+    "storage_bucket": "app-bprestamos.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:638908077364:android:19ac1b3ea92c0c09290161",
+        "android_client_info": {
+          "package_name": "com.example.prestamos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "638908077364-tkm48p2b1t60dmq7o8r596o9b7ohp0fq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.prestamos",
+            "certificate_hash": "c4a1264bc3e9a4c9428c0047c43e20a9388f8dfa"
+          }
+        },
+        {
+          "client_id": "638908077364-fqlj2qdeopgdd1ukksd5qb237sn5spf8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMPXuBqqEJontBRtncJYJkcC7k4OASb-A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "638908077364-fqlj2qdeopgdd1ukksd5qb237sn5spf8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
