@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Prestamos</string>
+    <string name="home_title">Prestamos</string>
+
+    <array name="opciones">
+        <item>Todos los libros</item>
+        <item>Libros prestados</item>
+        <item>Libros sin prestar</item>
+    </array>
+
+</resources>
