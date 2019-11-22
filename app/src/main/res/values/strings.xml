@@ -2,6 +2,12 @@
     <string name="app_name">Prestamos</string>
     <string name="home_title">Prestamos</string>
     <string name="item_titulo">Título</string>
+    <string name="item_libroP">Libros Prestados</string>
+    <string name="item_entregado">Lista de Entregados</string>
+    <string name="item_nombreP">Nombre</string>
+    <string name="item_fechaP">Fecha Prestamo</string>
+    <string name="item_telefonoP">Telefono</string>
+    <string name="btn_Guardar">Guardar</string>
     <array name="opciones">
         <item>Libros por titulo</item>
         <item>Libros por autor</item>
