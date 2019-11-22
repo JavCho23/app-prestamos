@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.example.prestamos.Clases.LibroAdaptador;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
     private FirebaseFirestore db;
     private ArrayList<Libro> libros = new ArrayList<>();
-    private ArrayAdapter adaptador;
+    private LibroAdaptador adaptador;
     private Spinner categorias;
 
     @Override
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         ListView lista;
         lista = findViewById(R.id.lista_general);
         categorias = findViewById(R.id.spinner);
-        adaptador = new ArrayAdapter<Libro>(this,android.R.layout.simple_list_item_1,libros);
+        adaptador = new LibroAdaptador(this,libros);
         lista.setAdapter(adaptador);
 
         db = FirebaseFirestore.getInstance();

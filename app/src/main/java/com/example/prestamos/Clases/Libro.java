@@ -1,6 +1,5 @@
 package com.example.prestamos.Clases;
 
-import android.content.Intent;
 
 public class Libro {
     private String titulo;
