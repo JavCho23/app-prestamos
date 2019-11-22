@@ -44,10 +44,9 @@
                 android:id="@+id/textView"
                 android:layout_width="275dp"
                 android:layout_height="67dp"
-                android:layout_marginTop="48dp"
+                android:layout_marginTop="44dp"
                 android:text="@string/item_titulo"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.411"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 

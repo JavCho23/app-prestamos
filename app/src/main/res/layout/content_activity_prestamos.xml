@@ -8,4 +8,11 @@
     tools:context=".activity_prestamos"
     tools:showIn="@layout/activity_prestamos">
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="172dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
