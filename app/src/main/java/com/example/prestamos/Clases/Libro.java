@@ -4,24 +4,34 @@ import android.content.Intent;
 
 public class Libro {
     private String titulo;
-    private int numero;
+    private double numero;
     private String dewey;
-    private String cantidad;
+    private double cantidad;
     private String autores;
     private String anioPublicacion;
     private String programaEstudio;
+    private int prestados;
 
     public Libro() {
     }
 
-    public Libro(String titulo, String numero, String dewey, String cantidad, String autores, String anioPublicacion, String programaEstudio) {
+    public Libro(String titulo, double numero, String dewey, double cantidad, String autores, String anioPublicacion, String programaEstudio, int prestados) {
         this.titulo = titulo;
-        this.numero = Integer.parseInt(numero);
+        this.numero = numero;
         this.dewey = dewey;
         this.cantidad = cantidad;
         this.autores = autores;
         this.anioPublicacion = anioPublicacion;
         this.programaEstudio = programaEstudio;
+        this.prestados = prestados;
+    }
+
+    public double getNumero() {
+        return numero;
+    }
+
+    public void setNumero(double numero) {
+        this.numero = numero;
     }
 
     public String getTitulo() {
@@ -32,13 +42,6 @@ public class Libro {
         this.titulo = titulo;
     }
 
-    public int getNumero() {
-        return numero;
-    }
-
-    public void setNumero(String numero) {
-        this.numero = Integer.parseInt(numero);
-    }
 
     public String getDewey() {
         return dewey;
@@ -48,12 +51,22 @@ public class Libro {
         this.dewey = dewey;
     }
 
-    public String getCantidad() {
+
+    public double getCantidad() {
         return cantidad;
     }
 
-    public void setCantidad(String cantidad) {
-        this.cantidad = cantidad;    }
+    public void setCantidad(double cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public int getPrestados() {
+        return prestados;
+    }
+
+    public void setPrestados(int prestados) {
+        this.prestados = prestados;
+    }
 
     public String getAutores() {
         return autores;

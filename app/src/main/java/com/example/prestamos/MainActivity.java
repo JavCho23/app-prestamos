@@ -71,8 +71,8 @@ public class MainActivity extends AppCompatActivity {
                             List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
 
                             for (DocumentSnapshot doc : list) {
-                                Libro producto = doc.toObject(Libro.class);
-                                libros.add(producto);
+                                Libro libro = doc.toObject(Libro.class);
+                                libros.add(libro);
                             }
 
                             adaptador.notifyDataSetChanged();
