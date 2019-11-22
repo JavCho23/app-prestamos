@@ -2,6 +2,7 @@ package com.example.prestamos;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.prestamos.Clases.LibroAdaptador;
@@ -44,6 +45,13 @@ public class MainActivity extends AppCompatActivity {
         lista.setAdapter(adaptador);
 
         db = FirebaseFirestore.getInstance();
+
+        lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                startActivity(new Intent(MainActivity.this, detalle_libro.class));
+            }
+        });
 
         categorias.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
