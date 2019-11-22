@@ -8,4 +8,124 @@
     tools:context=".activity_prestamos"
     tools:showIn="@layout/activity_prestamos">
 
+    <TextView
+        android:id="@+id/pantalla_titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DATOS DE PRÉSTAMO"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.055" />
+
+    <EditText
+        android:id="@+id/fechaPrestamo"
+        android:layout_width="303dp"
+        android:layout_height="40dp"
+        android:drawableLeft="@drawable/fechaPrestamo"
+        android:ems="10"
+        android:inputType="date"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.521"
+        tools:text="@string/fechaPrestamo" />
+
+    <EditText
+        android:id="@+id/dni"
+        android:layout_width="303dp"
+        android:layout_height="42dp"
+        android:drawableLeft="@drawable/documento"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/DNI"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.537"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.154" />
+
+    <EditText
+        android:id="@+id/nombrePersona"
+        android:layout_width="303dp"
+        android:layout_height="39dp"
+        android:drawableLeft="@drawable/nombreCliente"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/nombrePersona"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.537"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.232" />
+
+    <EditText
+        android:id="@+id/procedencia"
+        android:layout_width="305dp"
+        android:layout_height="34dp"
+        android:drawableLeft="@drawable/procedencia"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/procedencia"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.537"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.31" />
+
+    <EditText
+        android:id="@+id/correo"
+        android:layout_width="303dp"
+        android:layout_height="37dp"
+        android:drawableLeft="@drawable/correoElectronico"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:text="@string/correo"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.527"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.374" />
+
+    <EditText
+        android:id="@+id/numeroCelular"
+        android:layout_width="301dp"
+        android:layout_height="39dp"
+        android:drawableLeft="@drawable/telefono"
+        android:ems="10"
+        android:inputType="phone"
+        android:text="@string/numeroCelular"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.518"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.444" />
+
+    <Button
+        android:id="@+id/generarPrestamo"
+        android:layout_width="357dp"
+        android:layout_height="54dp"
+        android:text="Generar préstamo"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:drawableLeft="@drawable/generarLibro"
+        app:layout_constraintVertical_bias="0.939" />
 </androidx.constraintlayout.widget.ConstraintLayout>

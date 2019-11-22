@@ -11,5 +11,10 @@
     <string name="title_activity_prestamos">activity_prestamos</string>
     <string name="title_activity_libros_prestados">activity_libros_prestados</string>
     <string name="title_activity_entregas">activity_entregas</string>
-
+    <string name="DNI">Ingrese DNI</string>
+    <string name="nombrePersona">Ingrese nombre</string>
+    <string name="procedencia">Ingrese procedencia</string>
+    <string name="correo">Ingrese correo electrónico</string>
+    <string name="numeroCelular">Ingrese número telefónico</string>
+    <string name="fechaPrestamo">dd/mm/aaaa</string>
 </resources>
