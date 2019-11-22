@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Biblioteca</string>
-    <string name="home_title">Biblioteca</string>
     <string name="item_titulo">Título</string>
     <string name="item_libroP">Libros Prestados</string>
     <string name="item_entregado">Lista de Entregados</string>
@@ -21,6 +20,7 @@
     <string name="title_activity_carrito_prestamo">Biblioteca</string>
 
     <string name="carrito_titulo">Ejemplares escogidos</string>
+    <string name="detalle_libro_titulo">Datos del Libro</string>
 
     <string name="boton_pedido">Hacer pedido</string>
     <string name="menu_libros">Libros</string>
