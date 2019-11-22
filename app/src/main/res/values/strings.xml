@@ -8,5 +8,8 @@
         <item>Libros sin prestar</item>
     </array>
     <string name="title_activity_detalle_libro">detalle_libro</string>
+    <string name="title_activity_prestamos">activity_prestamos</string>
+    <string name="title_activity_libros_prestados">activity_libros_prestados</string>
+    <string name="title_activity_entregas">activity_entregas</string>
 
 </resources>
