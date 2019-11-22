@@ -1,17 +1,25 @@
 <resources>
-    <string name="app_name">Prestamos</string>
-    <string name="home_title">Prestamos</string>
+    <string name="app_name">Biblioteca</string>
+    <string name="home_title">Biblioteca</string>
     <string name="item_titulo">Título</string>
     <array name="opciones">
         <item>Libros por titulo</item>
         <item>Libros por autor</item>
     </array>
-    <string name="title_activity_detalle_libro">detalle_libro</string>
-    <string name="title_activity_prestamos">activity_prestamos</string>
-    <string name="title_activity_libros_prestados">activity_libros_prestados</string>
-    <string name="title_activity_entregas">activity_entregas</string>
-    <string name="title_activity_detalle_prestamo">detalle_prestamo</string>
-    <string name="title_activity_libros">libros</string>
-    <string name="title_activity_carrito_prestamo">carrito_prestamo</string>
+    <string name="title_activity_detalle_libro">Biblioteca</string>
+    <string name="title_activity_prestamos">Biblioteca</string>
+    <string name="title_activity_libros_prestados">Biblioteca</string>
+    <string name="title_activity_entregas">Biblioteca</string>
+    <string name="title_activity_detalle_prestamo">Biblioteca</string>
+    <string name="title_activity_libros">Biblioteca</string>
+    <string name="title_activity_carrito_prestamo">Biblioteca</string>
+
+    <string name="carrito_titulo">Ejemplares escogidos</string>
+
+    <string name="boton_pedido">Hacer pedido</string>
+    <string name="menu_libros">Libros</string>
+    <string name="menu_prestamo">Prestamo</string>
+    <string name="menu_entregas">Entregas</string>
+    <string name="menu_libros_prestados">Libros Prestados</string>
 
 </resources>

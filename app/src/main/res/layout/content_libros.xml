@@ -25,11 +25,10 @@
 
     <ListView
         android:id="@+id/lista_general"
-        android:layout_width="411dp"
-        android:layout_height="515dp"
+        android:layout_width="367dp"
+        android:layout_height="485dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <SearchView

@@ -14,11 +14,20 @@
         <activity
             android:name=".carrito_prestamo"
             android:label="@string/title_activity_carrito_prestamo"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.prestamos.MainActivity" />
+        </activity>
         <activity
             android:name=".libros"
             android:label="@string/title_activity_libros"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.example.prestamos.MainActivity" />
+    </activity>
+
         <activity
             android:name=".detalle_prestamo"
             android:label="@string/title_activity_detalle_prestamo"
@@ -26,20 +35,33 @@
         <activity
             android:name=".activity_entregas"
             android:label="@string/title_activity_entregas"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.prestamos.MainActivity" />
+        </activity>
         <activity
             android:name=".activity_libros_prestados"
             android:label="@string/title_activity_libros_prestados"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.prestamos.MainActivity" />
+        </activity>
         <activity
             android:name=".activity_prestamos"
             android:label="@string/title_activity_prestamos"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.prestamos.MainActivity" />
+        </activity>
         <activity
             android:name=".detalle_libro"
             android:label="@string/title_activity_detalle_libro"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".MainActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
