@@ -12,65 +12,91 @@
         android:id="@+id/detalle_prestamo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:text="Detalle Préstamo"
-        android:textColor="@android:color/white"
+        android:background="@color/common_google_signin_btn_text_dark_pressed"
+        android:text="@string/item_detalleP"
+        android:textColor="@color/colorPrimary"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="140dp"
+        tools:layout_editor_absoluteX="107dp"
         tools:layout_editor_absoluteY="16dp" />
 
     <TextView
-        android:id="@+id/detalle_prestamo2"
+        android:id="@+id/detalle_dni"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
+        android:text="@string/item_DNI"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="31dp"
+        tools:layout_editor_absoluteY="76dp" />
 
-        android:text="Destinatario:"
-        android:textColor="@android:color/white"
-        android:textSize="20sp"
-        tools:layout_editor_absoluteX="162dp"
-        tools:layout_editor_absoluteY="242dp" />
+    <TextView
+        android:id="@+id/detalle_nombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/item_nombre"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="32dp"
+        tools:layout_editor_absoluteY="118dp" />
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="329dp"
-        android:layout_height="50dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Nombre del Libro:"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="58dp" />
+    <TextView
+        android:id="@+id/detalle_procedencia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/item_procedencia"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="32dp"
+        tools:layout_editor_absoluteY="167dp" />
 
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="289dp"
-        android:layout_height="41dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Fecha de Préstamo:"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="180dp" />
+    <TextView
+        android:id="@+id/detalle_correo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/item_correo"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="31dp"
+        tools:layout_editor_absoluteY="211dp" />
 
-    <EditText
-        android:id="@+id/editText3"
-        android:layout_width="288dp"
-        android:layout_height="42dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Codigo de Libro:"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="121dp" />
+    <TextView
+        android:id="@+id/procedencia_telefono"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/item_telefono"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="262dp"
+        tools:layout_editor_absoluteY="167dp" />
 
-    <EditText
-        android:id="@+id/editText4"
-        android:layout_width="318dp"
-        android:layout_height="77dp"
-        android:layout_marginEnd="72dp"
-        android:ems="10"
-        android:gravity="start|top"
-        android:inputType="textMultiLine"
+    <TextView
+        android:id="@+id/procedencia_fecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/item_fecha"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="31dp"
+        tools:layout_editor_absoluteY="253dp" />
+
+    <TextView
+        android:id="@+id/detalle_libroPrestados"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/item_libroTP"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20"
+        tools:layout_editor_absoluteX="114dp"
+        tools:layout_editor_absoluteY="333dp" />
+
+    <ListView
+        android:layout_width="327dp"
+        android:layout_height="221dp"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="519dp" /><![CDATA[
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="398dp" /><![CDATA[
+
+
+
+
+
+
+
+
 
     tools:layout_editor_absoluteX="173dp"
         tools:layout_editor_absoluteY="243dp" />
@@ -79,47 +105,24 @@
 
 
 
-    ]]>
 
-    <EditText
-        android:id="@+id/editText6"
-        android:layout_width="353dp"
-        android:layout_height="48dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Nombre :"
-        tools:layout_editor_absoluteX="20dp"
-        tools:layout_editor_absoluteY="285dp" />
 
-    <EditText
-        android:id="@+id/editText7"
-        android:layout_width="244dp"
-        android:layout_height="44dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="DNI :"
-        tools:layout_editor_absoluteX="20dp"
-        tools:layout_editor_absoluteY="351dp" />
 
-    <EditText
-        android:id="@+id/editText8"
-        android:layout_width="244dp"
-        android:layout_height="44dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Celular: "
-        tools:layout_editor_absoluteX="21dp"
-        tools:layout_editor_absoluteY="405dp" />
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Descripción:"
 
-        android:textColor="@color/cardview_dark_background"
-        android:textSize="20sp"
-        tools:layout_editor_absoluteX="21dp"
-        tools:layout_editor_absoluteY="474dp" />
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+]]>
 </androidx.constraintlayout.widget.ConstraintLayout>
