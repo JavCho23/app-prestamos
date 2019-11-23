@@ -25,7 +25,7 @@
         android:id="@+id/fechaPrestamo"
         android:layout_width="303dp"
         android:layout_height="40dp"
-        android:drawableLeft="@drawable/fechaPrestamo"
+        android:drawableLeft="@drawable/fechaprestamo"
         android:ems="10"
         android:inputType="date"
         android:textSize="14sp"
@@ -57,7 +57,7 @@
         android:id="@+id/nombrePersona"
         android:layout_width="303dp"
         android:layout_height="39dp"
-        android:drawableLeft="@drawable/nombreCliente"
+        android:drawableLeft="@drawable/nombrecliente"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="@string/nombrePersona"
@@ -89,7 +89,7 @@
         android:id="@+id/correo"
         android:layout_width="303dp"
         android:layout_height="37dp"
-        android:drawableLeft="@drawable/correoElectronico"
+        android:drawableLeft="@drawable/correoelectronico"
         android:ems="10"
         android:inputType="textEmailAddress"
         android:text="@string/correo"
@@ -127,7 +127,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:drawableLeft="@drawable/generarLibro"
+        android:drawableLeft="@drawable/generarlibro"
         app:layout_constraintVertical_bias="0.939" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
