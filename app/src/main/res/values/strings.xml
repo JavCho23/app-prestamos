@@ -12,10 +12,6 @@
         <item>Libros por autor</item>
     </array>
 
-    <string name="title_activity_detalle_libro">detalle_libro</string>
-    <string name="title_activity_prestamos">activity_prestamos</string>
-    <string name="title_activity_libros_prestados">activity_libros_prestados</string>
-    <string name="title_activity_entregas">activity_entregas</string>
     <string name="DNI">Ingrese DNI</string>
     <string name="nombrePersona">Ingrese nombre</string>
     <string name="procedencia">Ingrese procedencia</string>
@@ -40,5 +36,4 @@
     <string name="menu_entregas">Entregas</string>
     <string name="menu_libros_prestados">Libros Prestados</string>
 
->>>>>>> 9134625ccdd747578a434ac63ff3aedc9ef59bd5
 </resources>
