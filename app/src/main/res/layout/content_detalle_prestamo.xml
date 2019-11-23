@@ -79,7 +79,7 @@
         android:layout_height="wrap_content"
         android:text="@string/item_libroTP"
         android:textColor="@color/colorPrimary"
-        android:textSize="20"
+        android:textSize="20dp"
         tools:layout_editor_absoluteX="114dp"
         tools:layout_editor_absoluteY="333dp" />
 
