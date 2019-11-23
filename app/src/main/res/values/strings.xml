@@ -7,6 +7,16 @@
     <string name="item_fechaP">Fecha Prestamo</string>
     <string name="item_telefonoP">Telefono</string>
     <string name="btn_Guardar">Guardar</string>
+    /*---------------DETALLE PRESTAMO--------------*/
+    <string name="item_detalleP">DETALLE PRESTAMO</string>
+    <string name="item_libroTP">LIBROS PRESTADOS</string>
+    <string name="item_DNI">DNI:</string>
+    <string name="item_nombre">Nombre:</string>
+    <string name="item_procedencia">Procedencia:</string>
+    <string name="item_correo">Correo:</string>
+    <string name="item_telefono">Telefono:</string>
+    <string name="item_fecha">Fecha:</string>
+    /*--------------------------------------------*/
     <array name="opciones">
         <item>Libros por titulo</item>
         <item>Libros por autor</item>
