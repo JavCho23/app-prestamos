@@ -46,7 +46,7 @@ public class LibroAdaptador extends BaseAdapter {
 
         titulo.setText(libro.getTitulo());
         autores.setText(libro.getAutores());
-        disponibles.setText("Disponibles: "+(libro.getCantidad()-libro.getPrestados()));
+        disponibles.setText("Ejemplares "+(libro.getCantidad()-libro.getPrestados()));
 
         return convertView;
     }

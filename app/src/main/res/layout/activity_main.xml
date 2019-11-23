@@ -15,8 +15,6 @@
         android:layout_marginEnd="52dp"
         android:background="@drawable/ic_prestados"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/imageEntregas"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <ImageView
@@ -59,10 +57,9 @@
         android:layout_width="134dp"
         android:layout_height="129dp"
         android:layout_marginTop="84dp"
+        android:layout_marginEnd="52dp"
         android:background="@drawable/ic_book_black_24dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.546"
-        app:layout_constraintStart_toEndOf="@+id/imageLibros"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -70,13 +67,11 @@
         android:layout_width="130dp"
         android:layout_height="41dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginEnd="52dp"
         android:text="@string/menu_prestamo"
         android:textAlignment="center"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.863"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/imagePrestamo" />
 
     <TextView
@@ -84,14 +79,12 @@
         android:layout_width="120dp"
         android:layout_height="73dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginEnd="60dp"
         android:text="@string/menu_libros_prestados"
 
         android:textAlignment="center"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.755"
-        app:layout_constraintStart_toEndOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/imageLibrosPrestados" />
 
     <ImageView

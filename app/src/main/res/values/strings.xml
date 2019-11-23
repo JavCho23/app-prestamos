@@ -8,7 +8,7 @@
     <string name="item_telefonoP">Telefono</string>
     <string name="btn_Guardar">Guardar</string>
     <array name="opciones">
-        <item>Libros por titulo</item>
+        <item>Libros por título</item>
         <item>Libros por autor</item>
     </array>
 
