@@ -8,7 +8,7 @@
     <string name="item_telefonoP">Telefono</string>
     <string name="btn_Guardar">Guardar</string>
     /*---------------DETALLE PRESTAMO--------------*/
-    <string name="item_detalleP">DETALLE PRESTAMO</string>
+    <string name="item_detalleP">DETALLE PRÉSTAMO</string>
     <string name="item_libroTP">LIBROS PRESTADOS</string>
     <string name="item_DNI">DNI:</string>
     <string name="item_nombre">Nombre:</string>
@@ -18,8 +18,8 @@
     <string name="item_fecha">Fecha:</string>
     /*--------------------------------------------*/
     <array name="opciones">
-        <item>Libros por título</item>
-        <item>Libros por autor</item>
+        <item>LIBROS POR TÍTULO</item>
+        <item>LIBROS POR AUTOR</item>
     </array>
 
     <string name="DNI">Ingrese DNI</string>
@@ -37,8 +37,8 @@
     <string name="title_activity_libros">Biblioteca</string>
     <string name="title_activity_carrito_prestamo">Biblioteca</string>
 
-    <string name="carrito_titulo">Ejemplares escogidos</string>
-    <string name="detalle_libro_titulo">Datos del Libro</string>
+    <string name="carrito_titulo">EJEMPLARES ESCOGIDOS</string>
+    <string name="detalle_libro_titulo">DATOS DEL LIBRO</string>
 
     <string name="boton_pedido">Hacer pedido</string>
     <string name="menu_libros">Libros</string>
