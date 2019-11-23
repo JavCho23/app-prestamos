@@ -10,14 +10,18 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
 
-public class detalle_libro extends AppCompatActivity {
+public class carrito_prestamo extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detalle_libro);
+        setContentView(R.layout.activity_carrito_prestamo);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

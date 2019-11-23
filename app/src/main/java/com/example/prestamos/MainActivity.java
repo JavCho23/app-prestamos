@@ -16,6 +16,7 @@ import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
 
@@ -27,10 +28,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private FirebaseFirestore db;
-    private ArrayList<Libro> libros = new ArrayList<>();
-    private LibroAdaptador adaptador;
-    private Spinner categorias;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,55 +36,38 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        ListView lista;
-        lista = findViewById(R.id.lista_general);
-        categorias = findViewById(R.id.spinner);
-        adaptador = new LibroAdaptador(this,libros);
-        lista.setAdapter(adaptador);
+        ImageView imageLibros = findViewById(R.id.imageLibros);
+        ImageView imagePrestamo = findViewById(R.id.imagePrestamo);
+        ImageView imageLibrosPrestados = findViewById(R.id.imageLibrosPrestados);
+        ImageView imageEntregas = findViewById(R.id.imageEntregas);
 
-        db = FirebaseFirestore.getInstance();
-
-        lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        imageLibros.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                startActivity(new Intent(MainActivity.this, detalle_libro.class));
+            public void onClick(View v) {
+                startActivity( new Intent(MainActivity.this, libros.class));
             }
         });
 
-        categorias.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        imagePrestamo.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                cargarDatos(categorias.getSelectedItem().toString());
+            public void onClick(View v) {
+                startActivity( new Intent(MainActivity.this, activity_entregas.class));
             }
+        });
 
+        imageLibrosPrestados.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {
+            public void onClick(View v) {
+                startActivity( new Intent(MainActivity.this, activity_libros_prestados.class));
+            }
+        });
 
+        imageEntregas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity( new Intent(MainActivity.this, activity_entregas.class));
             }
         });
     }
 
-    public void cargarDatos(String categoria) {
-        libros.clear();
-        adaptador.notifyDataSetChanged();
-
-        db.collection("libros")
-                .get()
-                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-                    @Override
-                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                        if (!queryDocumentSnapshots.isEmpty()) {
-
-                            List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
-
-                            for (DocumentSnapshot doc : list) {
-                                Libro libro = doc.toObject(Libro.class);
-                                libros.add(libro);
-                            }
-
-                            adaptador.notifyDataSetChanged();
-                        }
-                    }
-                });
-    }
 }

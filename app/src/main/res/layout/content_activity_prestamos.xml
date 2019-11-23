@@ -8,6 +8,7 @@
     tools:context=".activity_prestamos"
     tools:showIn="@layout/activity_prestamos">
 
+
     <TextView
         android:id="@+id/pantalla_titulo"
         android:layout_width="wrap_content"
@@ -128,4 +129,5 @@
         app:layout_constraintTop_toTopOf="parent"
         android:drawableLeft="@drawable/generarLibro"
         app:layout_constraintVertical_bias="0.939" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,12 +1,17 @@
 <resources>
-    <string name="app_name">Prestamos</string>
-    <string name="home_title">Prestamos</string>
+    <string name="app_name">Biblioteca</string>
     <string name="item_titulo">Título</string>
+    <string name="item_libroP">Libros Prestados</string>
+    <string name="item_entregado">Lista de Entregados</string>
+    <string name="item_nombreP">Nombre</string>
+    <string name="item_fechaP">Fecha Prestamo</string>
+    <string name="item_telefonoP">Telefono</string>
+    <string name="btn_Guardar">Guardar</string>
     <array name="opciones">
-        <item>Todos los libros</item>
-        <item>Libros prestados</item>
-        <item>Libros sin prestar</item>
+        <item>Libros por titulo</item>
+        <item>Libros por autor</item>
     </array>
+
     <string name="title_activity_detalle_libro">detalle_libro</string>
     <string name="title_activity_prestamos">activity_prestamos</string>
     <string name="title_activity_libros_prestados">activity_libros_prestados</string>
@@ -17,4 +22,23 @@
     <string name="correo">Ingrese correo electrónico</string>
     <string name="numeroCelular">Ingrese número telefónico</string>
     <string name="fechaPrestamo">dd/mm/aaaa</string>
+
+    <string name="title_activity_detalle_libro">Biblioteca</string>
+    <string name="title_activity_prestamos">Biblioteca</string>
+    <string name="title_activity_libros_prestados">Biblioteca</string>
+    <string name="title_activity_entregas">Biblioteca</string>
+    <string name="title_activity_detalle_prestamo">Biblioteca</string>
+    <string name="title_activity_libros">Biblioteca</string>
+    <string name="title_activity_carrito_prestamo">Biblioteca</string>
+
+    <string name="carrito_titulo">Ejemplares escogidos</string>
+    <string name="detalle_libro_titulo">Datos del Libro</string>
+
+    <string name="boton_pedido">Hacer pedido</string>
+    <string name="menu_libros">Libros</string>
+    <string name="menu_prestamo">Prestamo</string>
+    <string name="menu_entregas">Entregas</string>
+    <string name="menu_libros_prestados">Libros Prestados</string>
+
+>>>>>>> 9134625ccdd747578a434ac63ff3aedc9ef59bd5
 </resources>

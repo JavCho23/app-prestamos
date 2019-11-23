@@ -7,5 +7,23 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".detalle_libro"
     tools:showIn="@layout/activity_detalle_libro">
+    <TextView
+        android:id="@+id/titulo_detalle_libro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/detalle_libro_titulo"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/lista_ejemplares"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ListView
+        android:id="@+id/lista_ejemplares"
+        android:layout_width="366dp"
+        android:layout_height="573dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
