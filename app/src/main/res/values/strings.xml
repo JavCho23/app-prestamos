@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Biblioteca</string>
+    <string name="app_name">BIBLIOTECA| UNPRG</string>
     <string name="item_titulo">Título</string>
     <string name="item_libroP">Libros Prestados</string>
     <string name="item_entregado">Lista de Entregados</string>
@@ -29,13 +29,13 @@
     <string name="numeroCelular">Ingrese número telefónico</string>
     <string name="fechaPrestamo">dd/mm/aaaa</string>
 
-    <string name="title_activity_detalle_libro">Biblioteca</string>
-    <string name="title_activity_prestamos">Biblioteca</string>
-    <string name="title_activity_libros_prestados">Biblioteca</string>
-    <string name="title_activity_entregas">Biblioteca</string>
-    <string name="title_activity_detalle_prestamo">Biblioteca</string>
-    <string name="title_activity_libros">Biblioteca</string>
-    <string name="title_activity_carrito_prestamo">Biblioteca</string>
+    <string name="title_activity_detalle_libro">BIBLIOTECA| UNPRG</string>
+    <string name="title_activity_prestamos">BIBLIOTECA| UNPRG</string>
+    <string name="title_activity_libros_prestados">BIBLIOTECA| UNPRG</string>
+    <string name="title_activity_entregas">BIBLIOTECA|UNPRG</string>
+    <string name="title_activity_detalle_prestamo">BIBLIOTECA| UNPRG</string>
+    <string name="title_activity_libros">BIBLIOTECA|UNPRG</string>
+    <string name="title_activity_carrito_prestamo">BIBLIOTECA| UNPRG</string>
 
     <string name="carrito_titulo">EJEMPLARES ESCOGIDOS</string>
     <string name="detalle_libro_titulo">DATOS DEL LIBRO</string>
