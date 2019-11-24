@@ -18,6 +18,10 @@ public class detalle_libro extends AppCompatActivity {
         setContentView(R.layout.activity_detalle_libro);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
 }

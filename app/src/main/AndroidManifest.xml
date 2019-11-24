@@ -14,7 +14,11 @@
         <activity
             android:name=".detalle_libro"
             android:label="@string/title_activity_detalle_libro"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.prestamos.libros" />
+        </activity>
         <activity
             android:name=".carrito_prestamo"
             android:label="@string/title_activity_carrito_prestamo"
@@ -34,7 +38,11 @@
         <activity
             android:name=".detalle_prestamo"
             android:label="@string/title_activity_detalle_prestamo"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.prestamos.MainActivity" />
+        </activity>
         <activity
             android:name=".activity_entregas"
             android:label="@string/title_activity_entregas"
@@ -57,7 +65,7 @@
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.prestamos.MainActivity" />
+                android:value="com.example.prestamos.carrito_prestamo" />
         </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
