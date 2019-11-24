@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import com.example.prestamos.Clases.Libro;
 import com.example.prestamos.Clases.LibroAdaptador;
+import com.example.prestamos.Clases.ListaLibros;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -25,7 +26,6 @@ import java.util.List;
 
 public class libros extends AppCompatActivity {
     private FirebaseFirestore db;
-    private ArrayList<Libro> libros = new ArrayList<>();
     private LibroAdaptador adaptador;
     private Spinner categorias;
 
@@ -42,7 +42,7 @@ public class libros extends AppCompatActivity {
             ListView lista;
             lista = findViewById(R.id.lista_general);
             categorias = findViewById(R.id.spinner);
-            adaptador = new LibroAdaptador(this,libros);
+            adaptador = new LibroAdaptador(this, ListaLibros.getLista());
             lista.setAdapter(adaptador);
 
             db = FirebaseFirestore.getInstance();
@@ -50,7 +50,7 @@ public class libros extends AppCompatActivity {
             lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    startActivity(new Intent(libros.this, detalle_libro.class).putExtra("posicion",position));
+                    startActivity(new Intent(libros.this, detalle_libro.class).putExtra("pos",position));
                 }
             });
 
@@ -68,7 +68,7 @@ public class libros extends AppCompatActivity {
         }
 
         public void cargarDatos(String categoria) {
-            libros.clear();
+            ListaLibros.getLista().clear();
             adaptador.notifyDataSetChanged();
 
             db.collection("libros")
@@ -82,7 +82,8 @@ public class libros extends AppCompatActivity {
 
                                 for (DocumentSnapshot doc : list) {
                                     Libro libro = doc.toObject(Libro.class);
-                                    libros.add(libro);
+
+                                    ListaLibros.agregar(libro);
                                 }
 
                                 adaptador.notifyDataSetChanged();
