@@ -42,8 +42,10 @@ public class EjemplarAdaptador extends BaseAdapter {
         convertView = LayoutInflater.from(contexto).inflate(R.layout.item_libro, null);
         TextView titulo = convertView.findViewById(R.id.item_titulo);
         TextView disponibles = convertView.findViewById(R.id.item_disponibles);
+        TextView autores = convertView.findViewById(R.id.item_autores);
 
-        titulo.setText(libro.getRfid());
+        titulo.setText(libro.getTitulo());
+        autores.setText(libro.getRfid());
         disponibles.setText(libro.isEstado() ? "Disponible": "Prestado");
 
         return convertView;

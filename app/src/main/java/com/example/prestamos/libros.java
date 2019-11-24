@@ -3,6 +3,7 @@ package com.example.prestamos;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.prestamos.Clases.Ejemplar;
 import com.example.prestamos.Clases.Libro;
 import com.example.prestamos.Clases.LibroAdaptador;
 import com.example.prestamos.Clases.ListaLibros;
@@ -82,7 +83,25 @@ public class libros extends AppCompatActivity {
 
                                 for (DocumentSnapshot doc : list) {
                                     Libro libro = doc.toObject(Libro.class);
+                                    final ArrayList<Ejemplar> ListaEjemplares = new ArrayList<Ejemplar>();
+                                    db.collection("libros").document(doc.getId()).collection("ejemplares")
+                                            .get()
+                                            .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                                                @Override
+                                                public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                                                    if (!queryDocumentSnapshots.isEmpty()) {
 
+                                                        List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
+
+                                                        for (DocumentSnapshot doc : list) {
+                                                            Ejemplar ejemplar = doc.toObject(Ejemplar.class);
+
+                                                            ListaEjemplares.add(ejemplar);
+                                                        }
+                                                    }
+                                                }
+                                            });
+                                    libro.setEjemplares(ListaEjemplares);
                                     ListaLibros.agregar(libro);
                                 }
 

@@ -25,7 +25,6 @@
         android:layout_height="41dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="Autores"
         android:textSize="11sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/item_titulo" />

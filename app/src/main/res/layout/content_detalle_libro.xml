@@ -22,8 +22,8 @@
 
     <ListView
         android:id="@+id/lista_ejemplares"
-        android:layout_width="333dp"
-        android:layout_height="445dp"
+        android:layout_width="360dp"
+        android:layout_height="463dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
