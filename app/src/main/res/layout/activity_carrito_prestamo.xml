@@ -20,6 +20,8 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include layout="@layout/content_carrito_prestamo" />
+    <include
+        layout="@layout/content_carrito_prestamo"
+        android:layout_height="665dp" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
