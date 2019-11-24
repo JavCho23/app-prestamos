@@ -24,6 +24,7 @@ public class detalle_libro extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+<<<<<<< HEAD
         ListView ejemplares = findViewById(R.id.lista_ejemplares);
         TextView autores = findViewById(R.id.datos_libro_autores);
         TextView titulo = findViewById(R.id.datos_libro_titulo);
@@ -35,6 +36,11 @@ public class detalle_libro extends AppCompatActivity {
 //         adaptador = new EjemplarAdaptador(this,libro.getEjemplares());
 //
 //         ejemplares.setAdapter(adaptador);
+=======
+
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+>>>>>>> 2214b76efaa59feab3092a90523a893e088847a9
     }
 
 }
