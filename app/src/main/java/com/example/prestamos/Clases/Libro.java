@@ -1,6 +1,8 @@
 package com.example.prestamos.Clases;
 
 
+import java.util.ArrayList;
+
 public class Libro {
     private String titulo;
     private double numero;
@@ -10,11 +12,12 @@ public class Libro {
     private String anioPublicacion;
     private String programaEstudio;
     private int prestados;
+    private ArrayList<Ejemplar> ejemplar;
 
     public Libro() {
     }
 
-    public Libro(String titulo, double numero, String dewey, double cantidad, String autores, String anioPublicacion, String programaEstudio, int prestados) {
+    public Libro(String titulo, double numero, String dewey, double cantidad, String autores, String anioPublicacion, String programaEstudio, int prestados, ArrayList<Ejemplar> ejemplar) {
         this.titulo = titulo;
         this.numero = numero;
         this.dewey = dewey;
@@ -23,6 +26,15 @@ public class Libro {
         this.anioPublicacion = anioPublicacion;
         this.programaEstudio = programaEstudio;
         this.prestados = prestados;
+        this.ejemplar = ejemplar;
+    }
+
+    public ArrayList<Ejemplar> getEjemplar() {
+        return ejemplar;
+    }
+
+    public void setEjemplares(ArrayList<Ejemplar> ejemplar) {
+        this.ejemplar = ejemplar;
     }
 
     public double getNumero() {

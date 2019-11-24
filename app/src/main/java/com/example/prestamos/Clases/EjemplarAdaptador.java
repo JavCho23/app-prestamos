@@ -11,11 +11,11 @@ import com.example.prestamos.R;
 
 import java.util.ArrayList;
 
-public class LibroAdaptador extends BaseAdapter {
+public class EjemplarAdaptador extends BaseAdapter {
     private Context contexto;
-    private ArrayList<Libro> lista;
+    private ArrayList<Ejemplar> lista;
 
-    public LibroAdaptador(Context contexto, ArrayList<Libro> lista) {
+    public EjemplarAdaptador(Context contexto, ArrayList<Ejemplar> lista) {
         this.contexto = contexto;
         this.lista = lista;
     }
@@ -37,16 +37,14 @@ public class LibroAdaptador extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        Libro libro = (Libro) getItem(position);
+        Ejemplar libro = (Ejemplar) getItem(position);
 
         convertView = LayoutInflater.from(contexto).inflate(R.layout.item_libro, null);
         TextView titulo = convertView.findViewById(R.id.item_titulo);
-        TextView autores = convertView.findViewById(R.id.item_autores);
         TextView disponibles = convertView.findViewById(R.id.item_disponibles);
 
-        titulo.setText(libro.getTitulo());
-        autores.setText(libro.getAutores());
-        disponibles.setText("Ejemplar "+ (int)(libro.getCantidad()-libro.getPrestados()));
+        titulo.setText(libro.getRfid());
+        disponibles.setText(libro.isEstado() ? "Disponible": "Prestado");
 
         return convertView;
     }
@@ -54,3 +52,4 @@ public class LibroAdaptador extends BaseAdapter {
         lista.clear();
     }
 }
+

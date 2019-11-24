@@ -79,7 +79,7 @@
         android:layout_height="wrap_content"
         android:text="@string/item_libroTP"
         android:textColor="@color/colorPrimary"
-        android:textSize="20"
+        android:textSize="20dp"
         tools:layout_editor_absoluteX="114dp"
         tools:layout_editor_absoluteY="333dp" />
 
@@ -88,18 +88,7 @@
         android:layout_height="221dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="398dp" /><![CDATA[
-
-
-
-
-
-
-
-
-
-    tools:layout_editor_absoluteX="173dp"
-        tools:layout_editor_absoluteY="243dp" />
+        tools:layout_editor_absoluteY="398dp" />
 
 
 
@@ -115,14 +104,4 @@
 
 
 
-
-
-
-
-
-
-
-
-
-]]>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -50,7 +50,7 @@ public class libros extends AppCompatActivity {
             lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    startActivity(new Intent(libros.this, detalle_libro.class));
+                    startActivity(new Intent(libros.this, detalle_libro.class).putExtra("posicion",position));
                 }
             });
 
