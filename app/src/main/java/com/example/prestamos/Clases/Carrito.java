@@ -29,7 +29,7 @@ public class Carrito {
         }
         public static void cambiarEstado(){
             for ( Ejemplar libro: libros) {
-                db.collection("libros").document(libro.getIdLibro()).collection("ejemplares").document(libro.getId()).update("estado",false);
+                db.collection("libros").document(libro.getIdLibro()).collection("ejemplares").document(libro.getId()).update("estado",libro.isEstado()?false:true);
             }
         }
 }
