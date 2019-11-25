@@ -45,7 +45,7 @@ public class activity_prestamos extends AppCompatActivity {
         final EditText nombre = findViewById(R.id.nombrePersona);
         final EditText procedencia = findViewById(R.id.procedencia);
         final EditText correo = findViewById(R.id.correo);
-        final EditText telefono = findViewById(R.id.correo);
+        final EditText telefono = findViewById(R.id.numeroCelular);
         EditText fecha = findViewById(R.id.fechaPrestamo);
         final RadioButton interno = findViewById(R.id.interno);
         final String fechaActual = DateFormat.getDateTimeInstance().format(new Date());
