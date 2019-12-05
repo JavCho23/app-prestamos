@@ -43,12 +43,21 @@ public class activity_prestamos extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+<<<<<<< HEAD
         registrar = findViewById(R.id.generarPrestamo);
         dni = findViewById(R.id.dni);
         nombre = findViewById(R.id.nombrePersona);
         procedencia = findViewById(R.id.procedencia);
         correo = findViewById(R.id.correo);
         telefono = findViewById(R.id.correo);
+=======
+        final Button registrar = findViewById(R.id.generarPrestamo);
+        final EditText dni = findViewById(R.id.dni);
+        final EditText nombre = findViewById(R.id.nombrePersona);
+        final EditText procedencia = findViewById(R.id.procedencia);
+        final EditText correo = findViewById(R.id.correo);
+        final EditText telefono = findViewById(R.id.numeroCelular);
+>>>>>>> afa990b9aa37b8e60874023e141a2795ca67bdb1
         EditText fecha = findViewById(R.id.fechaPrestamo);
         interno = findViewById(R.id.interno);
         interno.setSelected(true);
