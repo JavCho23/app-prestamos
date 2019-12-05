@@ -24,12 +24,15 @@ import android.widget.RadioButton;
 import android.widget.Toast;
 
 import java.text.DateFormat;
+import java.util.AbstractCollection;
 import java.util.Date;
 
 public class activity_prestamos extends AppCompatActivity {
-
-
-
+    EditText dni, nombre, procedencia, correo, telefono;
+    FirebaseFirestore db;
+    String fechaActual;
+    Button registrar;
+    RadioButton interno;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,63 +43,101 @@ public class activity_prestamos extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        final Button registrar = findViewById(R.id.generarPrestamo);
-        final EditText dni = findViewById(R.id.dni);
-        final EditText nombre = findViewById(R.id.nombrePersona);
-        final EditText procedencia = findViewById(R.id.procedencia);
-        final EditText correo = findViewById(R.id.correo);
-        final EditText telefono = findViewById(R.id.correo);
+        registrar = findViewById(R.id.generarPrestamo);
+        dni = findViewById(R.id.dni);
+        nombre = findViewById(R.id.nombrePersona);
+        procedencia = findViewById(R.id.procedencia);
+        correo = findViewById(R.id.correo);
+        telefono = findViewById(R.id.correo);
         EditText fecha = findViewById(R.id.fechaPrestamo);
-        final RadioButton interno = findViewById(R.id.interno);
-        final String fechaActual = DateFormat.getDateTimeInstance().format(new Date());
+        interno = findViewById(R.id.interno);
+        interno.setSelected(true);
+        fechaActual = DateFormat.getDateTimeInstance().format(new Date());
 
-        final FirebaseFirestore db;
         db = FirebaseFirestore.getInstance();
 
         fecha.setText(fechaActual);
 
-        registrar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                registrar.setEnabled(false);
-                Prestamo prestamo = new Prestamo(correo.getText().toString(),dni.getText().toString(),fechaActual,nombre.getText().toString(),procedencia.getText().toString(),telefono.getText().toString(),interno.isActivated());
-                db.collection("prestamos")
-                        .add(prestamo)
-                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                            @Override
-                            public void onSuccess(DocumentReference documentReference) {
-                                Carrito.cambiarEstado();
-                                for (Ejemplar ejemplar: Carrito.getLista()) {
-                                    db.collection("prestamos")
-                                            .document(documentReference.getId()).collection("ejemplares").add(ejemplar)
-                                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                                                @Override
-                                                public void onSuccess(DocumentReference documentReference) {
-                                                    Toast.makeText(activity_prestamos.this, "Prestamo registrado" , Toast.LENGTH_LONG).show();
 
-                                                }
-                                            })
-                                            .addOnFailureListener(new OnFailureListener() {
-                                                @Override
-                                                public void onFailure(@NonNull Exception e) {
-                                                    Toast.makeText(activity_prestamos.this, "Prestamo no registrado" + e.getMessage(), Toast.LENGTH_SHORT).show();
+            registrar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                        generarPrestamo(v);
 
-                                                }
-                                            });
-                                }
+                }
 
+            });
+
+    }
+    public void generarPrestamo (View v){
+        if (validar()){
+
+            registrar.setEnabled(false);
+            Prestamo prestamo = new Prestamo(correo.getText().toString(), dni.getText().toString(), fechaActual, nombre.getText().toString(), procedencia.getText().toString(), telefono.getText().toString(), interno.isActivated());
+
+            db.collection("prestamos")
+                    .add(prestamo)
+                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                        @Override
+                        public void onSuccess(DocumentReference documentReference) {
+                            Carrito.cambiarEstado();
+                            for (Ejemplar ejemplar : Carrito.getLista()) {
+                                db.collection("prestamos")
+                                        .document(documentReference.getId()).collection("ejemplares").add(ejemplar)
+                                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                            @Override
+                                            public void onSuccess(DocumentReference documentReference) {
+                                                Toast.makeText(activity_prestamos.this, "Préstamo registrado", Toast.LENGTH_LONG).show();
+                                                onBackPressed();
+
+                                            }
+                                        })
+                                        .addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                Toast.makeText(activity_prestamos.this, "Prestamo no registrado" + e.getMessage(), Toast.LENGTH_SHORT).show();
+
+                                            }
+                                        });
                             }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(activity_prestamos.this, "Prestamo no registrado" + e.getMessage(), Toast.LENGTH_SHORT).show();
 
-                            }
-                        });
-            }
-        });
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(activity_prestamos.this, "Préstamo no registrado" + e.getMessage(), Toast.LENGTH_SHORT).show();
 
+                        }
+                    });
+        }
+    }
+
+    public boolean validar(){
+        boolean retorno=true;
+
+        if(dni.getText().length() == 0){
+            dni.setError("Ingrese DNI");
+            retorno=false;
+        }
+        if (nombre.getText().length()==0){
+            nombre.setError("Ingrese nombre");
+            retorno=false;
+        }
+        if(procedencia.getText().length()==0){
+            procedencia.setError("Ingrese procedencia");
+            retorno=false;
+        }
+        if (correo.getText().length()==0){
+            correo.setError("Ingrese correo");
+            retorno=false;
+        }
+        if (telefono.getText().length()==0){
+            telefono.setError("Ingrese teléfono");
+            retorno=false;
+        }
+
+        return  retorno;
     }
 
 }

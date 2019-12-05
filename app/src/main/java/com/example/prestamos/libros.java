@@ -40,6 +40,7 @@ public class libros extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
+
             ListView lista;
             lista = findViewById(R.id.lista_general);
             categorias = findViewById(R.id.spinner);

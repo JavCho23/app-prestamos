@@ -54,6 +54,7 @@ public class carrito_prestamo extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(carrito_prestamo.this, activity_prestamos.class));
+                onBackPressed();
             }
         });
     }
