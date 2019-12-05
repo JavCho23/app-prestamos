@@ -8,8 +8,6 @@ import com.example.prestamos.Clases.Libro;
 import com.example.prestamos.Clases.LibroAdaptador;
 import com.example.prestamos.Clases.ListaLibros;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -42,7 +40,7 @@ public class libros extends AppCompatActivity {
 
 
             ListView lista;
-            lista = findViewById(R.id.lista_general);
+            lista = findViewById(R.id.lista_entregas);
             categorias = findViewById(R.id.spinner);
             adaptador = new LibroAdaptador(this, ListaLibros.getLista());
             lista.setAdapter(adaptador);
@@ -111,6 +109,7 @@ public class libros extends AppCompatActivity {
                         }
                     });
         }
+
 
 
 }

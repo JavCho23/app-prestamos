@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
-        android:id="@+id/lista_general"
+        android:id="@+id/lista_entregas"
         android:layout_width="367dp"
         android:layout_height="485dp"
         android:layout_marginTop="20dp"

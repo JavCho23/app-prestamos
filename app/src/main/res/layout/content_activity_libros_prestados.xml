@@ -5,10 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".activity_libros_prestados"
+    tools:context=".Prestamos_Internos"
     tools:showIn="@layout/activity_libros_prestados">
 
     <ListView
+        android:id="@+id/lista_prestados"
         android:layout_width="336dp"
         android:layout_height="553dp"
         android:layout_marginTop="20dp"

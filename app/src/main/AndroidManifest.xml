@@ -44,7 +44,7 @@
                 android:value="com.example.prestamos.MainActivity" />
         </activity>
         <activity
-            android:name=".activity_entregas"
+            android:name=".Prestamos_Externos"
             android:label="@string/title_activity_entregas"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -52,7 +52,7 @@
                 android:value="com.example.prestamos.MainActivity" />
         </activity>
         <activity
-            android:name=".activity_libros_prestados"
+            android:name=".Prestamos_Internos"
             android:label="@string/title_activity_libros_prestados"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data

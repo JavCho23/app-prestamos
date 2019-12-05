@@ -45,10 +45,16 @@ public class detalle_libro extends AppCompatActivity {
         ejemplares.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Carrito.agregar(libro.getEjemplares().get(position));
-                libro.getEjemplares().remove(position);
-                adaptador.notifyDataSetChanged();
-                Toast.makeText(detalle_libro.this, "Agregado al carrito", Toast.LENGTH_SHORT).show();
+                if(libro.getEjemplares().get(position).isEstado()){
+                    Carrito.agregar(libro.getEjemplares().get(position));
+                    libro.getEjemplares().remove(position);
+                    adaptador.notifyDataSetChanged();
+
+                    Toast.makeText(detalle_libro.this, "Agregado al carrito", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(detalle_libro.this, "Ejemplar no disponible", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
 
