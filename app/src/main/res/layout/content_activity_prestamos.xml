@@ -142,12 +142,14 @@
             android:id="@+id/interno"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:checked="true"
             android:text="@string/prestamo_interno" />
 
         <RadioButton
             android:id="@+id/externo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:checked="false"
             android:text="@string/prestamo_externo" />
     </RadioGroup>
 
