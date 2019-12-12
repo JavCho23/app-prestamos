@@ -1,15 +1,21 @@
 package com.example.prestamos;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
 import android.os.Bundle;
 
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.Toast;
+
+import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
 
+    private BluetoothAdapter mBtAdapter;
 
 
     @Override
@@ -50,6 +56,51 @@ public class MainActivity extends AppCompatActivity {
                 startActivity( new Intent(MainActivity.this, Prestamos_Externos.class));
             }
         });
+    }
+    @Override
+    public void onResume()
+    {
+        super.onResume();
+        //***************
+        checkBTState();
+
+
+
+        // Initialize array adapter for paired devices
+
+
+        // Get the local Bluetooth adapter
+        mBtAdapter = BluetoothAdapter.getDefaultAdapter();
+
+        // Get a set of currently paired devices and append to 'pairedDevices'
+        Set<BluetoothDevice> pairedDevices = mBtAdapter.getBondedDevices();
+
+        // Add previosuly paired devices to the array
+        if (pairedDevices.size() > 0) {
+            Toast.makeText(this, "Conectando...", Toast.LENGTH_SHORT).show();
+            // Get the device MAC address, which is the last 17 chars in the View
+
+            // Make an intent to start next activity while taking an extra which is the MAC address.
+
+        } else {
+            Toast.makeText(this, "No se han encontrado dispositivos emparejados", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
+    private void checkBTState() {
+        // Check device has Bluetooth and that it is turned on
+        mBtAdapter=BluetoothAdapter.getDefaultAdapter(); // CHECK THIS OUT THAT IT WORKS!!!
+        if(mBtAdapter==null) {
+            Toast.makeText(getBaseContext(), "El dispositivo no soporta Bluetooth", Toast.LENGTH_SHORT).show();
+        } else {
+            if (!mBtAdapter.isEnabled())  {
+                //Prompt user to turn on Bluetooth
+                Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+                startActivityForResult(enableBtIntent, 1);
+
+            }
+        }
     }
 
 }
