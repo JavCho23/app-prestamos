@@ -16,7 +16,7 @@ import java.util.Set;
 public class MainActivity extends AppCompatActivity {
 
     private BluetoothAdapter mBtAdapter;
-
+    public static String MAC;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,15 +76,7 @@ public class MainActivity extends AppCompatActivity {
         Set<BluetoothDevice> pairedDevices = mBtAdapter.getBondedDevices();
 
         // Add previosuly paired devices to the array
-        if (pairedDevices.size() > 0) {
-            Toast.makeText(this, "Conectando...", Toast.LENGTH_SHORT).show();
-            // Get the device MAC address, which is the last 17 chars in the View
 
-            // Make an intent to start next activity while taking an extra which is the MAC address.
-
-        } else {
-            Toast.makeText(this, "No se han encontrado dispositivos emparejados", Toast.LENGTH_SHORT).show();
-        }
     }
 
 
