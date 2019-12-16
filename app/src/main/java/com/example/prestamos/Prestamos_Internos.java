@@ -58,7 +58,7 @@ public class Prestamos_Internos extends AppCompatActivity {
         ListaPrestamo.getLista().clear();
         adaptador.notifyDataSetChanged();
 
-        db.collection("prestamos")
+        db.collection("prestamos").whereEqualTo("tipo", false)
                 .get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override

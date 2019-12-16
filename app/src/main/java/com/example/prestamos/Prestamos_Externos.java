@@ -15,8 +15,10 @@ import com.example.prestamos.Clases.ListaPrestamo;
 import com.example.prestamos.Clases.Prestamo;
 import com.example.prestamos.Clases.PrestamoAdaptador;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
@@ -58,17 +60,18 @@ public class Prestamos_Externos extends AppCompatActivity {
         ListaPrestamo.getLista().clear();
         adaptador.notifyDataSetChanged();
 
-        db.collection("prestamos")
+        db.collection("prestamos").whereEqualTo("tipo", true)
                 .get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-
                         if (!queryDocumentSnapshots.isEmpty()) {
+
                             List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
                             for (DocumentSnapshot doc : list) {
                                 Prestamo prestamo = doc.toObject(Prestamo.class);
                                 final ArrayList<Ejemplar> ListaEjemplares = new ArrayList<Ejemplar>();
+
                                 db.collection("prestamos").document(doc.getId()).collection("ejemplares")
                                         .get()
                                         .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
@@ -76,7 +79,6 @@ public class Prestamos_Externos extends AppCompatActivity {
                                             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
 
                                                 if (!queryDocumentSnapshots.isEmpty()) {
-
                                                     List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
 
                                                     for (DocumentSnapshot doc : list) {
