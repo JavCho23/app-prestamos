@@ -4,12 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.prestamos.Clases.Ejemplar;
-import com.example.prestamos.Clases.ListaPrestamo;
+import com.example.prestamos.Clases.ListaPrestamoInterno;
 import com.example.prestamos.Clases.Prestamo;
 import com.example.prestamos.Clases.PrestamoAdaptador;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -40,7 +38,7 @@ public class Prestamos_Internos extends AppCompatActivity {
 
         ListView lista;
         lista = findViewById(R.id.lista_prestados);
-        adaptador = new PrestamoAdaptador(this, ListaPrestamo.getLista());
+        adaptador = new PrestamoAdaptador(this, ListaPrestamoInterno.getLista());
         lista.setAdapter(adaptador);
 
         db = FirebaseFirestore.getInstance();
@@ -48,17 +46,23 @@ public class Prestamos_Internos extends AppCompatActivity {
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                startActivity(new Intent(Prestamos_Internos.this, detalle_prestamo.class).putExtra("pos",position));
+                startActivity(new Intent(Prestamos_Internos.this, detalle_prestamo.class).putExtra("pos",position).putExtra("tipo",true));
             }
         });
     }
-
-    public void listarEntregas(){
-
-        ListaPrestamo.getLista().clear();
+    @Override
+    public void onResume()
+    {
+        super.onResume();
         adaptador.notifyDataSetChanged();
 
-        db.collection("prestamos").whereEqualTo("tipo", false)
+    }
+    public void listarEntregas(){
+
+        ListaPrestamoInterno.getLista().clear();
+        adaptador.notifyDataSetChanged();
+
+        db.collection("prestamos").whereEqualTo("tipo", true)
                 .get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
@@ -81,14 +85,15 @@ public class Prestamos_Internos extends AppCompatActivity {
 
                                                     for (DocumentSnapshot doc : list) {
                                                         Ejemplar ejemplar = doc.toObject(Ejemplar.class);
+                                                        ejemplar.setIdPrestamo(doc.getId());
 
                                                         ListaEjemplares.add(ejemplar);
                                                     }
                                                 }
                                             }
                                         });
-
-                                ListaPrestamo.agregar(prestamo);
+                                prestamo.setEjemplares(ListaEjemplares);
+                                ListaPrestamoInterno.agregar(prestamo);
                             }
                             adaptador.notifyDataSetChanged();
                         }

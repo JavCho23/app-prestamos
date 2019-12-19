@@ -4,7 +4,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 
-public class ListaPrestamo {
+public class ListaPrestamoInterno {
     private static FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     private static ArrayList<Prestamo> prestamos = new ArrayList<Prestamo>();
@@ -19,12 +19,12 @@ public class ListaPrestamo {
     }
     public static void cambiarEstado(int pos){
         for ( Ejemplar libro: prestamos.get(pos).getEjemplares()) {
-            db.collection("libros").document(libro.getIdLibro()).collection("ejemplares").document(libro.getId()).update("estado",true);
+            db.collection("libros").document(libro.getIdLibro()).collection("ejemplares").document(libro.getId()).update("estado",libro.isEstado()?false:true);
 
         }
     }
     public static void cambiarEstado(int pos, int ejemplar){
-            db.collection("libros").document(prestamos.get(pos).getEjemplares().get(ejemplar).getIdLibro()).collection("ejemplares").document(prestamos.get(pos).getEjemplares().get(ejemplar).getId()).update("estado",true);
+        db.collection("libros").document(prestamos.get(pos).getEjemplares().get(ejemplar).getIdLibro()).collection("ejemplares").document(prestamos.get(pos).getEjemplares().get(ejemplar).getId()).update("estado",prestamos.get(pos).getEjemplares().get(ejemplar).isEstado()?false:true);
 
 
     }

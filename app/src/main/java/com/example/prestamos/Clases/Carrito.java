@@ -33,4 +33,7 @@ public class Carrito {
 
             }
         }
+        public static void limpiar(){
+            libros.clear();
+        }
 }

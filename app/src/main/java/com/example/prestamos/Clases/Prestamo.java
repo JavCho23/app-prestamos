@@ -1,6 +1,9 @@
 package com.example.prestamos.Clases;
 
+import java.util.ArrayList;
+
 public class Prestamo {
+    private String id;
     private String correo;
     private String dni;
     private String fecha;
@@ -8,6 +11,7 @@ public class Prestamo {
     private String procedencia;
     private String telefono;
     private boolean tipo; // true interno
+    private ArrayList<Ejemplar> ejemplares;
 
     public Prestamo() {
     }
@@ -20,6 +24,22 @@ public class Prestamo {
         this.procedencia = procedencia;
         this.telefono = telefono;
         this.tipo = tipo;
+    }
+
+    public ArrayList<Ejemplar> getEjemplares() {
+        return ejemplares;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setEjemplares(ArrayList<Ejemplar> ejemplares) {
+        this.ejemplares = ejemplares;
     }
 
     public boolean isTipo() {

@@ -129,7 +129,11 @@ public class activity_prestamos extends AppCompatActivity {
         try
         {
             btSocket.connect();
+            Toast.makeText(getBaseContext(), "Conectado al arduino", Toast.LENGTH_LONG).show();
+
         } catch (IOException e) {
+            Toast.makeText(getBaseContext(), "La conexion fallo", Toast.LENGTH_LONG).show();
+
             try
             {
                 btSocket.close();
@@ -215,11 +219,7 @@ public class activity_prestamos extends AppCompatActivity {
     }
     public void generarPrestamo (View v){
         if (validar()){
-            //Codigo para mandar los libros prestados al arduino
 
-
-
-            //Codigo para cargar los prestamos a la base de datos
 
             registrar.setEnabled(false);
             Prestamo prestamo = new Prestamo(correo.getText().toString(), dni.getText().toString(), fechaActual, nombre.getText().toString(), procedencia.getText().toString(), telefono.getText().toString(), interno.isActivated());
@@ -236,12 +236,13 @@ public class activity_prestamos extends AppCompatActivity {
                                         .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                             @Override
                                             public void onSuccess(DocumentReference documentReference) {
-                                                mConnectedThread.write(ejemplar.getRfid());
-                                                Toast.makeText(activity_prestamos.this, "Préstamo registrado", Toast.LENGTH_LONG).show();
 
 
-                                                //I send a character when resuming.beginning transmission to check device is connected
-                                                //If it is not an exception will be thrown in the write method and finish() will be called
+                                               if(!interno.isActivated()){
+                                                   //Codigo para mandar los libros prestados al arduino
+                                                   mConnectedThread.write(ejemplar.getRfid());
+                                               }
+
                                             }
                                         })
                                         .addOnFailureListener(new OnFailureListener() {
@@ -252,7 +253,14 @@ public class activity_prestamos extends AppCompatActivity {
                                             }
                                         });
                             }
-
+                            db.collection("prestamos").document(documentReference.getId()).update("id",documentReference.getId()) .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Toast.makeText(activity_prestamos.this, "Préstamo registrado", Toast.LENGTH_LONG).show();
+                                }
+                            })
+                            ;
+                            Carrito.limpiar();
 
                         }
                     })

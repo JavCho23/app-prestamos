@@ -42,7 +42,7 @@ public class PrestamoAdaptador extends BaseAdapter {
         convertView = LayoutInflater.from(contexto).inflate(R.layout.item_prestamo, null);
         TextView nombre = convertView.findViewById(R.id.item_nombre);
 
-        nombre.setText(prestamo.getNombre());
+        nombre.setText(prestamo.getNombre() + " " +  prestamo.getFecha());
 
         return convertView;
     }

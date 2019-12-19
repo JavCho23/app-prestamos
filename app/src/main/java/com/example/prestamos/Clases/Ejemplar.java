@@ -6,7 +6,7 @@ public class Ejemplar {
     private String titulo;
     private String idLibro;
     private String id;
-
+    private String idPrestamo;
     public Ejemplar() {
     }
 
@@ -24,6 +24,14 @@ public class Ejemplar {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getIdPrestamo() {
+        return idPrestamo;
+    }
+
+    public void setIdPrestamo(String idPrestamo) {
+        this.idPrestamo = idPrestamo;
     }
 
     public String getIdLibro() {

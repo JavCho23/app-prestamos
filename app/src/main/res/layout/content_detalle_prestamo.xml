@@ -25,55 +25,50 @@
         android:id="@+id/detalle_dni"
         android:layout_width="336dp"
         android:layout_height="23dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:drawableLeft="@drawable/documento"
         android:text="@string/item_DNI"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/detalle_nombre"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/detalle_prestamo"
-        app:layout_constraintVertical_bias="0.076" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/detalle_nombre"
-        android:layout_width="332dp"
-        android:layout_height="32dp"
+        android:layout_width="336dp"
+        android:layout_height="26dp"
         android:layout_marginStart="32dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="12dp"
         android:drawableLeft="@drawable/nombrecliente"
         android:text="@string/item_nombre"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/detalle_procedencia"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.102"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/detalle_procedencia"
-        android:layout_width="333dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="335dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="16dp"
         android:drawableLeft="@drawable/procedencia"
         android:text="@string/item_procedencia"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/procedencia_telefono"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/detalle_correo"
-        android:layout_width="338dp"
-        android:layout_height="25dp"
-        android:layout_marginBottom="32dp"
+        android:layout_width="336dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="12dp"
         android:drawableLeft="@drawable/correoelectronico"
         android:text="@string/item_correo"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/detalle_libroPrestados"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -81,13 +76,11 @@
         android:layout_width="335dp"
         android:layout_height="27dp"
         android:layout_marginStart="32dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="16dp"
         android:drawableLeft="@drawable/telefono"
         android:text="@string/item_telefono"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/detalle_correo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.09"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -102,15 +95,25 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+        app:layout_constraintVertical_bias="0.446" />
 
     <ListView
-        android:layout_width="348dp"
-        android:layout_height="276dp"
-        android:layout_marginBottom="36dp"
+        android:id="@+id/listaDetallePrestamo"
+        android:layout_width="351dp"
+        android:layout_height="231dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detalle_libroPrestados" />
+
+    <Button
+        android:id="@+id/btnDevolver"
+        android:layout_width="242dp"
+        android:layout_height="45dp"
+        android:text="@string/item_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listaDetallePrestamo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

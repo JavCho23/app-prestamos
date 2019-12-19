@@ -1,5 +1,6 @@
 package com.example.prestamos;
 
+
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -15,14 +16,13 @@ import com.example.prestamos.Clases.ListaPrestamo;
 import com.example.prestamos.Clases.Prestamo;
 import com.example.prestamos.Clases.PrestamoAdaptador;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 
 public class Prestamos_Externos extends AppCompatActivity {
@@ -49,9 +49,17 @@ public class Prestamos_Externos extends AppCompatActivity {
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                startActivity(new Intent(Prestamos_Externos.this, detalle_prestamo.class).putExtra("pos",position));
+                startActivity(new Intent(Prestamos_Externos.this, detalle_prestamo.class).putExtra("pos",position).putExtra("tipo",false));
             }
         });
+
+    }
+
+    @Override
+    public void onResume()
+    {
+        super.onResume();
+        adaptador.notifyDataSetChanged();
 
     }
 
@@ -60,7 +68,7 @@ public class Prestamos_Externos extends AppCompatActivity {
         ListaPrestamo.getLista().clear();
         adaptador.notifyDataSetChanged();
 
-        db.collection("prestamos").whereEqualTo("tipo", true)
+        db.collection("prestamos").whereEqualTo("tipo", false)
                 .get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
@@ -82,14 +90,16 @@ public class Prestamos_Externos extends AppCompatActivity {
                                                     List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
 
                                                     for (DocumentSnapshot doc : list) {
+                                                        String P = doc.getId();
                                                         Ejemplar ejemplar = doc.toObject(Ejemplar.class);
-
+                                                        ejemplar.setIdPrestamo(P);
                                                         ListaEjemplares.add(ejemplar);
                                                     }
                                                 }
                                             }
                                         });
 
+                                prestamo.setEjemplares(ListaEjemplares);
                                 ListaPrestamo.agregar(prestamo);
                             }
                             adaptador.notifyDataSetChanged();

@@ -10,6 +10,7 @@
     /*---------------DETALLE PRESTAMO--------------*/
     <string name="item_detalleP">DETALLE PRÉSTAMO</string>
     <string name="item_libroTP">LIBROS PRESTADOS</string>
+    <string name="item_button">Devolver todos</string>
     <string name="item_DNI">DNI:</string>
     <string name="item_nombre">Nombre:</string>
     <string name="item_procedencia">Procedencia:</string>
