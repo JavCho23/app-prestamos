@@ -9,7 +9,7 @@
     tools:showIn="@layout/activity_libros_prestados">
 
     <SearchView
-        android:id="@+id/searchView"
+        android:id="@+id/edittext"
         android:layout_width="354dp"
         android:layout_height="45dp"
         android:layout_marginTop="24dp"
@@ -26,7 +26,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.482"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView" />
+        app:layout_constraintTop_toBottomOf="@+id/edittext" />
 
     <TextView
         android:id="@+id/textView2"
