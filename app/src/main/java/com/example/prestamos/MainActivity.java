@@ -185,13 +185,7 @@ public class MainActivity extends AppCompatActivity {
     public void onPause()
     {
         super.onPause();
-        try
-        {
-            //Don't leave Bluetooth sockets open when leaving activity
-            btSocket.close();
-        } catch (IOException e2) {
-            //insert code to deal with this
-        }
+
     }
 
     //Checks that the Android device Bluetooth is available and prompts to be turned on if off
