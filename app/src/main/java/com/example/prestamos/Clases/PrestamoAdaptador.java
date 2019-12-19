@@ -49,9 +49,4 @@ public class PrestamoAdaptador extends BaseAdapter {
     public void clear(){
         lista.clear();
     }
-
-    public void filterList(ArrayList<Prestamo> filteredList){
-        lista = filteredList;
-        notifyDataSetChanged();
-    }
 }

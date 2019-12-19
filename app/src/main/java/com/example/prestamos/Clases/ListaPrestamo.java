@@ -1,10 +1,12 @@
 package com.example.prestamos.Clases;
 
 import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.os.Handler;
 import android.widget.Toast;
 
+import com.example.prestamos.MainActivity;
 import com.example.prestamos.activity_prestamos;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -17,8 +19,8 @@ public class ListaPrestamo {
     Handler bluetoothIn;
 
     final int handlerState = 0;             //used to identify handler message
-    private BluetoothAdapter btAdapter = null;
-    private BluetoothSocket btSocket = null;
+    private static BluetoothAdapter btAdapter = null;
+    private static BluetoothSocket btSocket = null;
     private StringBuilder recDataString = new StringBuilder();
 
     private static ListaPrestamo.ConnectedThread mConnectedThread;
@@ -35,6 +37,7 @@ public class ListaPrestamo {
         return prestamos;
     }
     public static void cambiarEstado(int pos){
+
         for ( Ejemplar libro: prestamos.get(pos).getEjemplares()) {
             db.collection("libros").document(libro.getIdLibro()).collection("ejemplares").document(libro.getId()).update("estado",true);
             mConnectedThread.write( "."+ libro.getRfid());

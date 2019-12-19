@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        btAdapter = BluetoothAdapter.getDefaultAdapter();       // get Bluetooth adapter
 
         ImageView imageLibros = findViewById(R.id.imageLibros);
         ImageView imagePrestamo = findViewById(R.id.imagePrestamo);
@@ -83,7 +84,6 @@ public class MainActivity extends AppCompatActivity {
 
         bluetoothIn = new Handler() {
             public void handleMessage(android.os.Message msg) {
-                if (msg.what == handlerState) {          //if message is what we want
                     String readMessage = (String) msg.obj;                                                                // msg.arg1 = bytes from connect thread
                     recDataString.append(readMessage);              //keep appending to string until ~
                     int endOfLineIndex = recDataString.indexOf("#");                    // determine the end-of-line
@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                         mNotifyMgr.notify(1, mBuilder.build());                    }
-                }
+
             }
         };
     }

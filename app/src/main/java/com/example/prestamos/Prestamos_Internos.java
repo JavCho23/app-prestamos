@@ -1,6 +1,5 @@
 package com.example.prestamos;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -15,14 +14,9 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.EditText;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -31,9 +25,6 @@ import java.util.List;
 public class Prestamos_Internos extends AppCompatActivity {
     private FirebaseFirestore db;
     private PrestamoAdaptador adaptador;
-    private RecyclerView mRecyclerView;
-    private RecyclerView.LayoutManager mLayoutManager;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,49 +49,7 @@ public class Prestamos_Internos extends AppCompatActivity {
                 startActivity(new Intent(Prestamos_Internos.this, detalle_prestamo.class).putExtra("pos",position).putExtra("tipo",true));
             }
         });
-        buildRecyclerView();
-        EditText editText = findViewById(R.id.edittext);
-        editText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                filter(s.toString());
-            }
-        });
     }
-
-    private void filter(String text){
-        ArrayList<Prestamo> ListaPrestamos = new ArrayList<>();
-        for (Prestamo item : ListaPrestamoInterno.getLista()){
-            if(item.getNombre().toLowerCase().contains(text.toLowerCase())){
-                ListaPrestamos.add(item);
-            }
-        }
-        adaptador.ListaPrestamos(ListaPrestamos);
-    }
-
-    @SuppressLint("WrongViewCast")
-    private void buildRecyclerView() {
-
-        mRecyclerView = findViewById(R.id.lista_prestados);
-        mRecyclerView.setHasFixedSize(true);
-        mLayoutManager = new LinearLayoutManager(this);
-        adaptador = new PrestamoAdaptador(this, ListaPrestamoInterno.getLista());
-
-        mRecyclerView.setLayoutManager(mLayoutManager);
-        mRecyclerView.setAdapter(adaptador);
-
-    }
-
     @Override
     public void onResume()
     {
