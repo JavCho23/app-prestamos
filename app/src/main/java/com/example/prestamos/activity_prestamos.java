@@ -112,7 +112,7 @@ public class activity_prestamos extends AppCompatActivity {
     public void onResume() {
         super.onResume();
 
-        //Get the MAC address from the DeviceListActivty via EXTRA
+        //Get the MAC address
         address = "00:18:E4:40:00:06";
 
         //create device and set the MAC address
@@ -132,15 +132,9 @@ public class activity_prestamos extends AppCompatActivity {
             Toast.makeText(getBaseContext(), "Conectado al arduino", Toast.LENGTH_LONG).show();
 
         } catch (IOException e) {
-            Toast.makeText(getBaseContext(), "La conexion fallo", Toast.LENGTH_LONG).show();
+            Toast.makeText(getBaseContext(), "La conexion fallo, ingrese otra vez a esta ventana", Toast.LENGTH_LONG).show();
 
-            try
-            {
-                btSocket.close();
-            } catch (IOException e2)
-            {
-                //insert code to deal with this
-            }
+
         }
         mConnectedThread = new ConnectedThread(btSocket);
         mConnectedThread.start();
@@ -181,22 +175,7 @@ public class activity_prestamos extends AppCompatActivity {
         }
 
 
-        public void run() {
-            byte[] buffer = new byte[256];
-            int bytes;
 
-            // Keep looping to listen for received messages
-            while (true) {
-                try {
-                    bytes = mmInStream.read(buffer);         //read bytes from input buffer
-                    String readMessage = new String(buffer, 0, bytes);
-                    // Send the obtained bytes to the UI Activity via handler
-                    bluetoothIn.obtainMessage(handlerState, bytes, -1, readMessage).sendToTarget();
-                } catch (IOException e) {
-                    break;
-                }
-            }
-        }
 
         //write method
         public void write(String input) {
@@ -233,7 +212,7 @@ public class activity_prestamos extends AppCompatActivity {
 
                                                if(!interno.isActivated()){
                                                    //Codigo para mandar los libros prestados al arduino
-                                                   mConnectedThread.write( "#"+ ejemplar.getRfid());
+                                                   mConnectedThread.write( ejemplar.getRfid());
                                                }
 
                                             }
@@ -250,6 +229,8 @@ public class activity_prestamos extends AppCompatActivity {
                                 @Override
                                 public void onSuccess(Void aVoid) {
                                     Toast.makeText(activity_prestamos.this, "Préstamo registrado", Toast.LENGTH_LONG).show();
+                                    finish();
+
                                 }
                             })
                             ;

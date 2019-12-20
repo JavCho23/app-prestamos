@@ -164,15 +164,8 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getBaseContext(), "Conectado al arduino", Toast.LENGTH_LONG).show();
 
         } catch (IOException e) {
-            Toast.makeText(getBaseContext(), "La conexion fallo", Toast.LENGTH_LONG).show();
+            Toast.makeText(getBaseContext(), "La conexion fallo, ingrese otra vez a esta ventana", Toast.LENGTH_LONG).show();
 
-            try
-            {
-                btSocket.close();
-            } catch (IOException e2)
-            {
-                //insert code to deal with this
-            }
         }
         mConnectedThread = new MainActivity.ConnectedThread(btSocket);
         mConnectedThread.start();
@@ -238,7 +231,6 @@ public class MainActivity extends AppCompatActivity {
             } catch (IOException e) {
                 //if you cannot write, close the application
                 Toast.makeText(getBaseContext(), "La Conexión fallo", Toast.LENGTH_LONG).show();
-                finish();
 
             }
         }
