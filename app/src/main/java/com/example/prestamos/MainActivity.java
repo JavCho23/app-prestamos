@@ -4,12 +4,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 
 import android.annotation.SuppressLint;
+import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
+import android.os.Build;
 import android.os.Bundle;
 
 import android.os.Handler;
@@ -35,7 +41,8 @@ public class MainActivity extends AppCompatActivity {
     private StringBuilder recDataString = new StringBuilder();
 
     private MainActivity.ConnectedThread mConnectedThread;
-
+    private final int NOTIF_ALERTA_ID = 1;
+    private final String CHANNEL_ID = "BIBLIOTECA_NOTIFICACION";
     // SPP UUID service - this should work for most devices
     private static final UUID BTMODULEUUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
 
@@ -46,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         btAdapter = BluetoothAdapter.getDefaultAdapter();       // get Bluetooth adapter
 
         ImageView imageLibros = findViewById(R.id.imageLibros);
@@ -84,24 +90,56 @@ public class MainActivity extends AppCompatActivity {
 
         bluetoothIn = new Handler() {
             public void handleMessage(android.os.Message msg) {
+                if (msg.what == handlerState) {          //if message is what we want
                     String readMessage = (String) msg.obj;                                                                // msg.arg1 = bytes from connect thread
                     recDataString.append(readMessage);              //keep appending to string until ~
-                    int endOfLineIndex = recDataString.indexOf("#");                    // determine the end-of-line
+                    int endOfLineIndex = recDataString.indexOf("#");// determine the end-of-line
                     if (endOfLineIndex > 0) {                                           // make sure there data before ~
-                        String dataInPrint = recDataString.substring(0, endOfLineIndex);    // extract string
-                        NotificationCompat.Builder mBuilder;
-                        NotificationManager mNotifyMgr =(NotificationManager) getApplicationContext().getSystemService(NOTIFICATION_SERVICE);
+                        String dataInPrint = recDataString.substring(0, endOfLineIndex);
+                        // extract string
+                        Toast.makeText(MainActivity.this, dataInPrint, Toast.LENGTH_SHORT).show();
+                        NotificationManager mNotificationManager =
+                                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                        NotificationCompat.Builder mBuilder =
+                                new NotificationCompat.Builder(MainActivity.this,null);
+                        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
 
-                        int icono = R.mipmap.ic_launcher;
+                            CharSequence name = "Biblioteca alerta";
+                            String description = "Alertar salidas no autorizadas";
+                            int importance = NotificationManager.IMPORTANCE_HIGH;
+                            NotificationChannel mChannel = new NotificationChannel(CHANNEL_ID, name, importance);
+                            mChannel.setDescription(description);
+                            mChannel.enableLights(true);
 
-                        mBuilder =new NotificationCompat.Builder(getApplicationContext())
-                                .setSmallIcon(icono)
-                                .setContentTitle("Alerta Biblioteca")
-                                .setContentText(dataInPrint)
-                                .setVibrate(new long[] {100, 250, 100, 500});
+                            mChannel.setLightColor(Color.RED);
+                            mChannel.enableVibration(true);
+                            mChannel.setVibrationPattern(new long[]{100,200,300,400,500,400,300,200,400});
+                            mNotificationManager.createNotificationChannel(mChannel);
+                            mBuilder =
+                                    new NotificationCompat.Builder(MainActivity.this,CHANNEL_ID);
+                        }
+
+                        mBuilder.setSmallIcon(android.R.drawable.stat_sys_warning)
+                                        .setContentTitle("Mensaje de Alerta")
+                                        .setContentText(dataInPrint)
+                                        .setVibrate(new long[] { 1000, 1000, 1000, 1000, 1000 })
+                                        .setTicker("Alerta!")
+                                        .setAutoCancel(false);
+//                        Intent notIntent =
+//                                new Intent(MainActivity.this, MainActivity.class);
+//
+//                        PendingIntent contIntent =
+//                                PendingIntent.getActivity(
+//                                        MainActivity.this, 0, notIntent, 0);
+//
+//                        mBuilder.setContentIntent(contIntent);
 
 
-                        mNotifyMgr.notify(1, mBuilder.build());                    }
+                        mNotificationManager.notify(NOTIF_ALERTA_ID, mBuilder.build());
+                        recDataString.delete(0, recDataString.length());      //clear all string data
+                        // strIncom =" ";
+                    }
+                }
 
             }
         };
