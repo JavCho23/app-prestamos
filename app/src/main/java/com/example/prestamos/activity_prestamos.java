@@ -33,6 +33,7 @@ import java.io.OutputStream;
 import java.text.DateFormat;
 import java.util.AbstractCollection;
 import java.util.Date;
+import java.util.Set;
 import java.util.UUID;
 
 public class activity_prestamos extends AppCompatActivity {
@@ -112,29 +113,33 @@ public class activity_prestamos extends AppCompatActivity {
     public void onResume() {
         super.onResume();
 
-        //Get the MAC address
+        //Get the MAC address from the DeviceListActivty via EXTRA
         address = "00:18:E4:40:00:06";
-
-        //create device and set the MAC address
-        //Log.i("ramiro", "adress : " + address);
+        // Initialize array adapter for paired devices
         BluetoothDevice device = btAdapter.getRemoteDevice(address);
 
         try {
             btSocket = createBluetoothSocket(device);
-
         } catch (IOException e) {
-            Toast.makeText(getBaseContext(), "La creacción del Socket fallo", Toast.LENGTH_LONG).show();
+            e.printStackTrace();
         }
-        // Establish the Bluetooth socket connection.
-        try
-        {
-            btSocket.connect();
-            Toast.makeText(getBaseContext(), "Conectado al arduino", Toast.LENGTH_LONG).show();
 
-        } catch (IOException e) {
-            Toast.makeText(getBaseContext(), "La conexion fallo, ingrese otra vez a esta ventana", Toast.LENGTH_LONG).show();
+        if(!btSocket.isConnected()) {
+            // Get the local Bluetooth adapter
 
 
+            //create device and set the MAC address
+            //Log.i("ramiro", "adress : " + address);
+
+
+            // Establish the Bluetooth socket connection.
+            try {
+                btSocket.connect();
+                Toast.makeText(getBaseContext(), "Conectado al arduino", Toast.LENGTH_LONG).show();
+
+            } catch (IOException e) {
+
+            }
         }
         mConnectedThread = new ConnectedThread(btSocket);
         mConnectedThread.start();
